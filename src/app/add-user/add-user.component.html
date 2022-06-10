@@ -1,0 +1,99 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col">
+      <p class="h3 fw-bolder">Add User</p>
+    </div>
+  </div>
+</div>
+<!-- create form -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <form [formGroup]="addForm" (submit)="createSubmit()">
+        <div class="mb-2">
+          <input
+            [(ngModel)]="detail.username"
+            name="username"
+            type="text"
+            formControlName="username"
+            required
+            class="form-control"
+            placeholder="username"
+          />
+          <div
+            *ngIf="
+              addForm.get('username')?.invalid &&
+              (addForm.get('username')?.dirty ||
+                addForm.get('username')?.touched)
+            "
+          >
+            Username is required & min length is 4
+          </div>
+        </div>
+        <div class="mb-2">
+          <input
+            [(ngModel)]="detail.exp"
+            name="exp"
+            type="text"
+            formControlName="exp"
+            required
+            class="form-control"
+            placeholder="exp"
+          />
+          <div
+            *ngIf="
+              addForm.get('exp')?.invalid &&
+              (addForm.get('exp')?.dirty || addForm.get('exp')?.touched)
+            "
+          >
+            Exp is required
+          </div>
+        </div>
+        <div class="mb-2">
+          <input
+            [(ngModel)]="detail.country"
+            name="country"
+            type="text"
+            formControlName="country"
+            required
+            class="form-control"
+            placeholder="country"
+          />
+          <div
+            *ngIf="
+              addForm.get('country')?.invalid &&
+              (addForm.get('country')?.dirty || addForm.get('country')?.touched)
+            "
+          >
+            Country is required
+          </div>
+        </div>
+        <div class="mb-2">
+          <input
+            [(ngModel)]="detail.password"
+            name="password"
+            type="password"
+            formControlName="password"
+            required
+            class="form-control"
+            placeholder="password"
+          />
+          <div
+            *ngIf="
+              addForm.get('password')?.invalid &&
+              (addForm.get('password')?.dirty ||
+                addForm.get('password')?.touched)
+            "
+          >
+            Password is required & min length is 4
+          </div>
+        </div>
+        <div class="mb-2">
+          <input type="submit" class="btn btn-danger" value="create" />
+          <a class="btn btn-dark ms-1" (click)="back()">Close</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

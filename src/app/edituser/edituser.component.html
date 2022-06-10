@@ -1,0 +1,63 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col">
+      <p class="h3 fw-bolder">Edit User</p>
+    </div>
+  </div>
+</div>
+
+<!-- create form -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <form (submit)="updateSubmit(detail.id)">
+        <div class="mb-2">
+          <input
+            [(ngModel)]="detail.username"
+            name="username"
+            type="text"
+            class="form-control"
+            placeholder="username"
+            required="true"
+            disabled
+          />
+        </div>
+        <div class="mb-2">
+          <input
+            [(ngModel)]="detail.exp"
+            name="exp"
+            type="text"
+            class="form-control"
+            placeholder="exp"
+            required="true"
+          />
+        </div>
+        <div class="mb-2">
+          <input
+            [(ngModel)]="detail.country"
+            name="country"
+            type="text"
+            class="form-control"
+            placeholder="country"
+            required="true"
+          />
+        </div>
+        <div class="mb-2">
+          <input
+            [(ngModel)]="detail.password"
+            name="password"
+            type="password"
+            class="form-control"
+            placeholder="password"
+            required="true"
+          />
+        </div>
+        <div class="mb-2">
+          <input type="submit" class="btn btn-danger" value="save" />
+          <a class="btn btn-dark ms-1" (click)="back(detail.id)">Close</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

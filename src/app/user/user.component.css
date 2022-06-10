@@ -1,0 +1,15 @@
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+}
+
+.view {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail {
+  margin-left: 25%;
+  margin-right: 25%;
+}
