@@ -24,7 +24,6 @@ export class AddUserComponent implements OnInit {
     ]),
     exp: new FormControl('', Validators.required),
     country: new FormControl('', Validators.required),
-    role: new FormControl('', Validators.required),
   });
 
   constructor(private router: Router, private store: Store) {}
