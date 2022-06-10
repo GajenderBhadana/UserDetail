@@ -42,6 +42,9 @@ export class LoginComponent implements OnInit {
         if (detail && detail.role === 'user') {
           this.route.navigate([`user/${detail.id}`]);
         }
+        if (detail && !detail.role) {
+          this.route.navigate([`user/${detail.id}`]);
+        }
       }
     });
   }
