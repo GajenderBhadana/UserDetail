@@ -1,8 +1,16 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Select, Store } from '@ngxs/store';
 import { Observable, Subscription } from 'rxjs';
-import { DeleteUser, GetAllDetail } from '../store/actions/user.action';
+import Swal from 'sweetalert2';
+import { AddUserComponent } from '../add-user/add-user.component';
+import {
+  AddUser,
+  DeleteUser,
+  GetAllDetail,
+  UpdateUser,
+} from '../store/actions/user.action';
 import { UserState } from '../store/state/user.state';
 import { User } from '../user';
 
@@ -17,8 +25,13 @@ export class AdminComponent implements OnInit, OnDestroy {
   @Select(UserState.getAllDetail) details$!: Observable<User[]>;
   @Select(UserState.userLoaded) userLoaded$!: Observable<boolean>;
   userLoadedSub!: Subscription;
+  id: string = '';
 
-  constructor(private store: Store, private route: Router) {}
+  constructor(
+    private store: Store,
+    private route: Router,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.getAllUserFromServer();
@@ -40,13 +53,41 @@ export class AdminComponent implements OnInit, OnDestroy {
     // });
   }
 
+  addUserDialog() {
+    const dialogRef = this.dialog.open(AddUserComponent, {
+      width: 'auto',
+      height: 'auto',
+      data: 'add',
+    });
+  }
+
   public deleteuser(id: string): any {
-    if (id) {
-      this.store.dispatch(new DeleteUser(id));
-      // this.detail.deleteUser(id).subscribe((data: {}) => {
-      //   this.getAllUserFromServer();
-      // });
-    }
+    Swal.fire({
+      title: 'Are you sure?',
+
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        if (id) {
+          this.store.dispatch(new DeleteUser(id));
+          // this.detail.deleteUser(id).subscribe((data: {}) => {
+          //   this.getAllUserFromServer();
+          // });
+        }
+      }
+    });
+  }
+
+  editUserDialog(user: User) {
+    const dialogRef = this.dialog.open(AddUserComponent, {
+      width: 'auto',
+      height: 'auto',
+      data: user,
+    });
   }
 
   logout() {

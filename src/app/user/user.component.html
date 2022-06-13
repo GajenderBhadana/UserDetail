@@ -4,22 +4,21 @@
       <p class="h3 fw-bolder">View User</p>
       <div>
         <a class="btn btn-primary" (click)="logout()">Logout</a>
-        <a class="btn btn-success ms-2" (click)="edit(detail.id)">Edit</a>
+        <a class="btn btn-success ms-2" (click)="editUserDialog(detail)"
+          >Edit</a
+        >
       </div>
     </div>
   </div>
 </div>
 
-<div class="container">
+<div class="container mt-2">
   <div class="row detail">
     <!-- <div class="col-sm-04">
       <img src="" alt="User Image" />
     </div> -->
     <div class="col-sm-03">
       <ul class="list-group">
-        <li class="list-group-item">
-          Id: <span class="fw-bold">{{ detail.id }}</span>
-        </li>
         <li class="list-group-item">
           Name: <span class="fw-bold">{{ detail.username }}</span>
         </li>
@@ -28,12 +27,6 @@
         </li>
         <li class="list-group-item">
           Country: <span class="fw-bold">{{ detail.country }}</span>
-        </li>
-        <li class="list-group-item">
-          Password: <span class="fw-bold">{{ detail.password }}</span>
-        </li>
-        <li class="list-group-item">
-          Role: <span class="fw-bold">{{ detail.role }}</span>
         </li>
       </ul>
     </div>

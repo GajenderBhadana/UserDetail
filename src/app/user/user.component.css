@@ -1,7 +1,7 @@
 .container {
   margin-left: auto;
   margin-right: auto;
-  width: 500px;
+  width: auto;
 }
 
 .view {
@@ -12,4 +12,15 @@
 .detail {
   margin-left: 25%;
   margin-right: 25%;
+}
+
+.list-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.list-group-item {
+  border: none;
+  font-size: large;
 }

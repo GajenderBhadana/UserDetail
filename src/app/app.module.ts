@@ -29,6 +29,7 @@ import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { UserState } from './store/state/user.state';
 import { EdituserComponent } from './edituser/edituser.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { EdituserComponent } from './edituser/edituser.component';
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
+    MatDialogModule,
     FormsModule,
     MatTableModule,
     MatSelectModule,

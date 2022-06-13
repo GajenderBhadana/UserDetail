@@ -1,7 +1,13 @@
-<div class="admin">
-  <h1>Admin</h1>
-  <a class="btn btn-primary" routerLink="add">Add User</a>
-  <a class="btn btn-danger" (click)="logout()">LogOut</a>
+<div class="container">
+  <div class="admin">
+    <h1>Admin</h1>
+    <div>
+      <a class="btn btn-primary text-white" (click)="addUserDialog()"
+        >Add User</a
+      >
+      <a class="btn btn-danger text-white ms-2" (click)="logout()">LogOut</a>
+    </div>
+  </div>
 </div>
 <!-- <table mat-table *ngFor="let detail of details" class="mat-elevation-z8">
   <ng-container matColumnDef="position">
@@ -9,35 +15,44 @@
     <td mat-cell *matCellDef="let element">{{ detail.id }}</td>
   </ng-container>
 </table> -->
-
-<table class="table table-hover" *ngIf="!loading && details.length > 0">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Username</th>
-      <th scope="col">password</th>
-      <th scope="col">exp</th>
-      <th scope="col">country</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let detail of details$ | async">
-      <td>{{ detail.id }}</td>
-      <td>{{ detail.username }}</td>
-      <td>{{ detail.password }}</td>
-      <td>{{ detail.exp }}</td>
-      <td>{{ detail.country }}</td>
-      <td class="btne">
-        <a class="btn btn-primary" routerLink="view/{{ detail.id }}">View</a>
-      </td>
-      <td class="btne">
-        <a class="btn btn-success" routerLink="edit/{{ detail.id }}">Edit</a>
-      </td>
-      <td class="btnr">
-        <button class="btn btn-danger" (click)="deleteuser(detail.id)">
-          Remove
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <table
+        class="table table-hover table-bordered"
+        *ngIf="!loading && details.length > 0"
+      >
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Username</th>
+            <th scope="col">password</th>
+            <th scope="col">exp</th>
+            <th scope="col">country</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let detail of details$ | async">
+            <td>{{ detail.id }}</td>
+            <td>{{ detail.username }}</td>
+            <td>{{ detail.password }}</td>
+            <td>{{ detail.exp }}</td>
+            <td>{{ detail.country }}</td>
+            <td>
+              <a class="btn btn-success mx-2" (click)="editUserDialog(detail)"
+                >Edit</a
+              >
+              <button
+                class="btn btn-danger mx-2"
+                (click)="deleteuser(detail.id)"
+              >
+                Remove
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

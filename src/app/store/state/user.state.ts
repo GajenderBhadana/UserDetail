@@ -140,11 +140,11 @@ export class UserState {
         console.log(res);
         const state = getState();
         const userList = [...state.users];
-        const index = userList.findIndex((user) => user.id == payload.id);
-        console.log(userList[index]);
+        console.log('userlist :', userList);
+
+        const index = userList.findIndex((user) => user.id == id);
         userList[index] = res;
 
-        console.log();
         setState({
           ...state,
           users: userList,
