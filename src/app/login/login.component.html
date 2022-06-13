@@ -46,28 +46,27 @@
       </h3>
 
       <form action="" class="mt-5 p-5" [formGroup]="loginForm">
-        <h5 class="text-primary mb-3">Login</h5>
-        <div class="form-floating mb-3">
+        <h5 class="login mb-3">Login</h5>
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
           <input
+            matInput
             type="username"
-            class="form-control"
-            placeholder="Username"
             name="username"
+            placeholder="Username"
             formControlName="username"
           />
-          <label for="floatingInput">Email address</label>
-        </div>
-        <div class="form-floating mb-3">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
           <input
+            matInput
             type="password"
-            class="form-control"
             placeholder="Password"
             name="password"
             formControlName="password"
           />
-          <label for="floatingPassword">Password</label>
-        </div>
-
+        </mat-form-field>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
           <button
             class="btn btn-outline-success me-md-2"

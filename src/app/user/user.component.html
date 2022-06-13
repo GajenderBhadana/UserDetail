@@ -3,8 +3,8 @@
     <div class="col view">
       <p class="h3 fw-bolder">View User</p>
       <div>
-        <a class="btn btn-primary" (click)="logout()">Logout</a>
-        <a class="btn btn-success ms-2" (click)="editUserDialog(detail)"
+        <a class="btn btn-outline-primary" (click)="logout()">Logout</a>
+        <a class="btn btn-outline-success ms-2" (click)="editUserDialog(detail)"
           >Edit</a
         >
       </div>
@@ -17,18 +17,26 @@
     <!-- <div class="col-sm-04">
       <img src="" alt="User Image" />
     </div> -->
-    <div class="col-sm-03">
-      <ul class="list-group">
-        <li class="list-group-item">
-          Name: <span class="fw-bold">{{ detail.username }}</span>
-        </li>
-        <li class="list-group-item">
-          Exp: <span class="fw-bold">{{ detail.exp }}</span>
-        </li>
-        <li class="list-group-item">
-          Country: <span class="fw-bold">{{ detail.country }}</span>
-        </li>
-      </ul>
+    <div class="col-sm-12">
+      <mat-card class="card mt-5">
+        <img
+          mat-card-image
+          src="../../assets/img/blank-profile-picture-g13d782601_640.png"
+        />
+        <mat-card-header>
+          <ul class="list-group">
+            <li class="list-group-item">
+              Name: <span class="fw-bold">{{ detail.username }}</span>
+            </li>
+            <li class="list-group-item">
+              Exp: <span class="fw-bold">{{ detail.exp }}</span>
+            </li>
+            <li class="list-group-item">
+              Country: <span class="fw-bold">{{ detail.country }}</span>
+            </li>
+          </ul>
+        </mat-card-header>
+      </mat-card>
     </div>
   </div>
 </div>

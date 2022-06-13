@@ -2,10 +2,8 @@
   <div class="admin">
     <h1>Admin</h1>
     <div>
-      <a class="btn btn-primary text-white" (click)="addUserDialog()"
-        >Add User</a
-      >
-      <a class="btn btn-danger text-white ms-2" (click)="logout()">LogOut</a>
+      <a class="btn btn-outline-primary" (click)="addUserDialog()">Add User</a>
+      <a class="btn btn-outline-danger ms-2" (click)="logout()">LogOut</a>
     </div>
   </div>
 </div>
@@ -40,11 +38,13 @@
             <td>{{ detail.exp }}</td>
             <td>{{ detail.country }}</td>
             <td>
-              <a class="btn btn-success mx-2" (click)="editUserDialog(detail)"
+              <a
+                class="btn btn-outline-success mx-2"
+                (click)="editUserDialog(detail)"
                 >Edit</a
               >
               <button
-                class="btn btn-danger mx-2"
+                class="btn btn-outline-danger mx-2"
                 (click)="deleteuser(detail.id)"
               >
                 Remove

@@ -14,13 +14,23 @@
   margin-right: 25%;
 }
 
-.list-group {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-
 .list-group-item {
   border: none;
   font-size: large;
+}
+
+.card {
+  width: 400px;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+}
+
+img {
+  margin: 0px !important;
+  width: 150px;
+  height: 120px;
 }

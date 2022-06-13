@@ -67,8 +67,11 @@ export class AdminComponent implements OnInit, OnDestroy {
 
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      customClass: {
+        confirmButton: 'btn btn-outline-success mx-2',
+        cancelButton: 'btn btn-outline-danger mx-2',
+      },
+      buttonsStyling: false,
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {

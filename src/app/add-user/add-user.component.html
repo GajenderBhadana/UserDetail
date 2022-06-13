@@ -11,24 +11,23 @@
   <div class="row">
     <div class="col-sm-12">
       <form [formGroup]="addForm" (submit)="createSubmit()">
-        <div class="mb-2">
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
           <input
+            matInput
+            type="username"
             name="username"
-            type="text"
+            placeholder="Username"
             formControlName="username"
-            required
-            class="form-control"
-            placeholder="username"
           />
-          <div
-            *ngIf="
-              addForm.get('username')?.invalid &&
-              (addForm.get('username')?.dirty ||
-                addForm.get('username')?.touched)
-            "
-          >
-            Username is required & min length is 4
-          </div>
+        </mat-form-field>
+        <div
+          *ngIf="
+            addForm.get('username')?.invalid &&
+            (addForm.get('username')?.dirty || addForm.get('username')?.touched)
+          "
+        >
+          Username is required & min length is 4
         </div>
         <div class="mb-2">
           <input
@@ -86,8 +85,8 @@
           </div>
         </div>
         <div class="mb-2">
-          <input type="submit" class="btn btn-danger" value="submit" />
-          <a class="btn btn-dark ms-1" (click)="back()">Close</a>
+          <input type="submit" class="btn btn-outline-primary" value="submit" />
+          <a class="btn btn-outline-danger ms-1" (click)="back()">Close</a>
         </div>
       </form>
     </div>
