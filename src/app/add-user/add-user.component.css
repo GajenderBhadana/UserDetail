@@ -5,6 +5,7 @@
   color: green;
 }
 
-.mat-form-field {
+mat-form-field {
   width: 100%;
+  height: auto;
 }

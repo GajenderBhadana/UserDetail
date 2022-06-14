@@ -12,48 +12,79 @@
   <div class="row">
     <div class="col-sm-12">
       <form [formGroup]="editForm" (submit)="updateSubmit()">
-        <div class="mb-2">
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
           <input
+            matInput
             name="username"
             formControlName="username"
             type="text"
-            class="form-control"
             placeholder="username"
-            required="true"
             readonly
           />
-        </div>
-        <div class="mb-2">
+          <mat-error
+            *ngIf="
+              editForm.get('username')?.invalid &&
+              (editForm.get('username')?.dirty ||
+                editForm.get('username')?.touched)
+            "
+            >Username is <strong> required</strong> & min length is 4</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Exp</mat-label>
           <input
+            matInput
             name="exp"
             formControlName="exp"
             type="text"
-            class="form-control"
             placeholder="exp"
-            required="true"
           />
-        </div>
-        <div class="mb-2">
+          <mat-error
+            *ngIf="
+              editForm.get('exp')?.invalid &&
+              (editForm.get('exp')?.dirty || editForm.get('exp')?.touched)
+            "
+            >Exp is <strong> required</strong></mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Country</mat-label>
           <input
+            matInput
             name="country"
             formControlName="country"
             type="text"
-            class="form-control"
             placeholder="country"
-            required="true"
           />
-        </div>
-        <div class="mb-2">
+          <mat-error
+            *ngIf="
+              editForm.get('country')?.invalid &&
+              (editForm.get('country')?.dirty ||
+                editForm.get('country')?.touched)
+            "
+            >Country is <strong> required</strong></mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
           <input
+            matInput
             name="password"
             type="password"
             formControlName="password"
-            class="form-control"
             placeholder="password"
-            required="true"
           />
-        </div>
-        <div class="mb-2">
+          <mat-error
+            *ngIf="
+              editForm.get('password')?.invalid &&
+              (editForm.get('password')?.dirty ||
+                editForm.get('password')?.touched)
+            "
+            >Password is <strong> required</strong></mat-error
+          >
+        </mat-form-field>
+        <div class="mb-4">
           <input type="submit" class="btn btn-outline-success" value="save" />
           <a class="btn btn-outline-danger ms-1" (click)="back()">Close</a>
         </div>

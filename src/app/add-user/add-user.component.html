@@ -20,71 +20,73 @@
             placeholder="Username"
             formControlName="username"
           />
+          <mat-error
+            *ngIf="
+              addForm.get('username')?.invalid &&
+              (addForm.get('username')?.dirty ||
+                addForm.get('username')?.touched)
+            "
+          >
+            Username is <strong> required</strong> & min length is 4
+          </mat-error>
         </mat-form-field>
-        <div
-          *ngIf="
-            addForm.get('username')?.invalid &&
-            (addForm.get('username')?.dirty || addForm.get('username')?.touched)
-          "
-        >
-          Username is required & min length is 4
-        </div>
-        <div class="mb-2">
+
+        <mat-form-field appearance="outline">
+          <mat-label>Exp</mat-label>
           <input
-            name="exp"
+            matInput
             type="text"
+            name="exp"
             formControlName="exp"
-            required
-            class="form-control"
             placeholder="exp"
           />
-          <div
+          <mat-error
             *ngIf="
               addForm.get('exp')?.invalid &&
               (addForm.get('exp')?.dirty || addForm.get('exp')?.touched)
             "
           >
-            Exp is required
-          </div>
-        </div>
-        <div class="mb-2">
+            Exp is <strong> required</strong></mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Country</mat-label>
           <input
+            matInput
             name="country"
             type="text"
             formControlName="country"
-            required
-            class="form-control"
             placeholder="country"
           />
-          <div
+          <mat-error
             *ngIf="
               addForm.get('country')?.invalid &&
               (addForm.get('country')?.dirty || addForm.get('country')?.touched)
             "
           >
-            Country is required
-          </div>
-        </div>
-        <div class="mb-2">
+            Country is <strong> required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
           <input
+            matInput
             name="password"
             type="password"
             formControlName="password"
-            required
-            class="form-control"
             placeholder="password"
           />
-          <div
+          <mat-error
             *ngIf="
               addForm.get('password')?.invalid &&
               (addForm.get('password')?.dirty ||
                 addForm.get('password')?.touched)
             "
           >
-            Password is required & min length is 4
-          </div>
-        </div>
-        <div class="mb-2">
+            Password is <strong> required</strong> & min length is 4
+          </mat-error>
+        </mat-form-field>
+        <div class="mb-4">
           <input type="submit" class="btn btn-outline-primary" value="submit" />
           <a class="btn btn-outline-danger ms-1" (click)="back()">Close</a>
         </div>
