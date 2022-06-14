@@ -35,8 +35,12 @@ export class AdminComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getAllUserFromServer();
+    this.loading = true;
     this.details$.subscribe((res) => {
       this.details = res;
+      setTimeout(() => {
+        this.loading = false;
+      }, 5000);
     });
   }
 

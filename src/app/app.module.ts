@@ -30,6 +30,7 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { UserState } from './store/state/user.state';
 import { EdituserComponent } from './edituser/edituser.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     FormsModule,
     MatTableModule,
     MatSelectModule,
+    MatProgressSpinnerModule,
     NgxsModule.forRoot([UserState]),
     NgxsLoggerPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),

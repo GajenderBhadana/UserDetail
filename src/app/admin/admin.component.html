@@ -16,6 +16,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-center">
+      <mat-spinner *ngIf="loading"></mat-spinner>
       <table
         class="table table-hover table-bordered"
         *ngIf="!loading && details.length > 0"
