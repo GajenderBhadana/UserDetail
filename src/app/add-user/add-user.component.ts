@@ -56,21 +56,22 @@ export class AddUserComponent implements OnInit {
   createSubmit() {
     if (!this.addForm.valid) {
       alert('Please Fill the Form Detail');
+      return;
     } else {
-      this.dialogRef.close(this.addForm.value);
-    }
-
-    if (this.addForm.value?.id !== null) {
-      let { id, ...rest } = this.addForm.value;
-      this.store.dispatch(new UpdateUser(rest, id)).subscribe((data: User) => {
-        // this.router.navigate(['admin']).then();
-      });
-    } else {
-      this.store
-        .dispatch(new AddUser(this.addForm.value))
-        .subscribe((data: User) => {
-          // this.router.navigate(['admin']).then();
-        });
+      if (this.addForm.value?.id !== null) {
+        let { id, ...rest } = this.addForm.value;
+        this.store
+          .dispatch(new UpdateUser(rest, id))
+          .subscribe((data: User) => {
+            // this.router.navigate(['admin']).then();
+          });
+      } else {
+        this.store
+          .dispatch(new AddUser(this.addForm.value))
+          .subscribe((data: User) => {
+            // this.router.navigate(['admin']).then();
+          });
+      }
     }
   }
 

@@ -19,10 +19,10 @@ export class EdituserComponent implements OnInit {
 
   editForm = new FormGroup({
     id: new FormControl(''),
-    username: new FormControl(''),
-    password: new FormControl(''),
-    exp: new FormControl(''),
-    country: new FormControl(''),
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+    exp: new FormControl('', Validators.required),
+    country: new FormControl('', Validators.required),
   });
 
   constructor(
@@ -60,7 +60,10 @@ export class EdituserComponent implements OnInit {
   }
 
   updateSubmit() {
-    if (this.editForm.value) {
+    if (!this.editForm.valid) {
+      alert('Please Fill the Form Detail');
+      return;
+    } else {
       let { id, ...rest } = this.editForm.value;
       console.log(this.editForm.value);
 
