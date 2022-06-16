@@ -5,12 +5,7 @@ import { Select, Store } from '@ngxs/store';
 import { Observable, Subscription } from 'rxjs';
 import Swal from 'sweetalert2';
 import { AddUserComponent } from '../add-user/add-user.component';
-import {
-  AddUser,
-  DeleteUser,
-  GetAllDetail,
-  UpdateUser,
-} from '../store/actions/user.action';
+import { DeleteUser, GetAllDetail } from '../store/actions/user.action';
 import { UserState } from '../store/state/user.state';
 import { User } from '../user';
 
@@ -50,11 +45,6 @@ export class AdminComponent implements OnInit, OnDestroy {
         this.store.dispatch(new GetAllDetail());
       }
     });
-    // this.loading = true;
-    // this.detail.getAllDetail().subscribe((data: user[]) => {
-    //   this.details = data;
-    //   this.loading = false;
-    // });
   }
 
   addUserDialog() {
@@ -81,9 +71,6 @@ export class AdminComponent implements OnInit, OnDestroy {
       if (result.isConfirmed) {
         if (id) {
           this.store.dispatch(new DeleteUser(id));
-          // this.detail.deleteUser(id).subscribe((data: {}) => {
-          //   this.getAllUserFromServer();
-          // });
         }
       }
     });

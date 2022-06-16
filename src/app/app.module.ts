@@ -18,12 +18,8 @@ import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { LoginService } from './services/login.service';
 import { AddUserComponent } from './add-user/add-user.component';
-import { EditUserComponent } from './edit-user/edit-user.component';
-import { ViewUserComponent } from './view-user/view-user.component';
-import { SpinnerComponent } from './spinner/spinner.component';
 import { MatSelectModule } from '@angular/material/select';
 
-// NGXS
 import { NgxsModule } from '@ngxs/store';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
@@ -39,9 +35,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     AdminComponent,
     UserComponent,
     AddUserComponent,
-    EditUserComponent,
-    ViewUserComponent,
-    SpinnerComponent,
     EdituserComponent,
   ],
   imports: [
@@ -64,7 +57,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     NgxsLoggerPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),
   ],
-  providers: [LoginService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,8 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { LoginService } from '../services/login.service';
 import { User } from '../user';
 import { Store } from '@ngxs/store';
 import { SetSelectedUser, UpdateUser } from '../store/actions/user.action';
@@ -26,10 +24,7 @@ export class EdituserComponent implements OnInit {
   });
 
   constructor(
-    private router: Router,
-    private activatedroute: ActivatedRoute,
     private store: Store,
-    private editservice: LoginService,
     public dialogRef: MatDialogRef<EdituserComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
@@ -49,14 +44,6 @@ export class EdituserComponent implements OnInit {
     } else {
       this.editForm.reset();
     }
-    // this.activatedroute.paramMap.subscribe((param: ParamMap) => {
-    //   this.id = param.get('id');
-    // });
-    // if (this.id) {
-    //   this.editservice.getDetail(this.id).subscribe((data: User) => {
-    //     this.detail = data;
-    //   });
-    // }
   }
 
   updateSubmit() {

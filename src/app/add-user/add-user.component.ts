@@ -63,13 +63,13 @@ export class AddUserComponent implements OnInit {
         this.store
           .dispatch(new UpdateUser(rest, id))
           .subscribe((data: User) => {
-            // this.router.navigate(['admin']).then();
+            this.dialogRef.close();
           });
       } else {
         this.store
           .dispatch(new AddUser(this.addForm.value))
           .subscribe((data: User) => {
-            // this.router.navigate(['admin']).then();
+            this.dialogRef.close();
           });
       }
     }

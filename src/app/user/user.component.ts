@@ -4,7 +4,6 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Select, Store } from '@ngxs/store';
 import { Observable, Subscription } from 'rxjs';
 import { EdituserComponent } from '../edituser/edituser.component';
-import { LoginService } from '../services/login.service';
 import { SetSelectedUser } from '../store/actions/user.action';
 import { UserState } from '../store/state/user.state';
 import { User } from '../user';
@@ -25,7 +24,6 @@ export class UserComponent implements OnInit {
     private store: Store,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private view: LoginService,
     private dialog: MatDialog
   ) {}
 
@@ -43,10 +41,6 @@ export class UserComponent implements OnInit {
     this.selectedUserSub = this.detail$.subscribe((res) => {
       this.detail = res;
     });
-    // this.view.getDetail(id).subscribe((data: User) => {
-    //   console.log(data);
-    //   this.detail = data;
-    // });
   }
 
   editUserDialog(user: User) {

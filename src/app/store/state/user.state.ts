@@ -28,7 +28,6 @@ export class UserStateModel {
 @Injectable()
 export class UserState {
   constructor(private detail: LoginService) {}
-  // Selectore has logic to get state data
 
   // Get user list from state
   @Selector()

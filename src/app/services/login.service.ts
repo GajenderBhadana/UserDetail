@@ -27,28 +27,28 @@ export class LoginService {
   // Get all user
   public getAllDetail(): Observable<User[]> {
     let dataURL: string = `${this.url}/users`;
-    return this.http.get<User[]>(dataURL).pipe();
+    return this.http.get<User[]>(dataURL);
   }
 
   // Get Single user
   public getDetail(id: string): Observable<User> {
     let dataURL: string = `${this.url}/users/${id}`;
-    return this.http.get<User>(dataURL).pipe();
+    return this.http.get<User>(dataURL);
   }
 
   // Create user
   public createUser(user: User): Observable<User> {
     let dataURL: string = `${this.url}/users`;
-    return this.http.post<User>(dataURL, user).pipe();
+    return this.http.post<User>(dataURL, user);
   }
   // Update user
   public updateUser(user: User, id: string): Observable<User> {
     let dataURL: string = `${this.url}/users/${id}`;
-    return this.http.put<User>(dataURL, user).pipe();
+    return this.http.put<User>(dataURL, user);
   }
   // Delete user
   public deleteUser(id: string): Observable<{}> {
     let dataURL: string = `${this.url}/users/${id}`;
-    return this.http.delete(dataURL).pipe();
+    return this.http.delete(dataURL);
   }
 }
